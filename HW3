@@ -1,0 +1,35 @@
+# Author: Melina Merritt
+# UT EID: msm4976
+# Course: CS 303E
+#
+# Practicing with for and while loops.
+# Creating a program to guess a generated number.
+
+print("I'm thinking of a number from 1 to 1000. " + 
+      "Try to guess my number! (Enter 0 to stop playing.)")
+
+import random
+
+num = random.randint(1,1000)
+guess = int(input("Please enter your guess: "))
+guess_count = 1
+bye = 0
+while guess != num and bye == 0:
+    if num < guess <= 1000:
+        print("Your guess is too high.")
+        guess = int(input("Please enter your guess: "))
+        guess_count += 1
+    elif num > guess >= 1:
+        print("Your guess is too low.")
+        guess = int(input("Please enter your guess: "))
+        guess_count += 1
+    elif (guess < 1 and guess != 0) or (guess > 1000):
+        print("Your guess must be between 1 to 1000.")
+        guess = int(input("Please enter your guess: "))
+        guess_count += 1
+    elif guess == 0:
+        print("Goodbye!")
+        bye += 1
+if guess == num:
+    print("That's correct! You win!")
+    print(f"You guessed my number in {guess_count} guesses.")
